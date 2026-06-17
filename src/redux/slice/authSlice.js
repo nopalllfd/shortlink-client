@@ -26,7 +26,7 @@ export const registerUser = createAsyncThunk('auth/register', async (payload, th
     const data = await response.json();
     console.log(data);
     if (!response.ok) {
-      return thunkAPI.rejectWithValue(data?.error || 'Register failed');
+      return thunkAPI.rejectWithValue(data?.message || 'Register failed');
     }
 
     return data;

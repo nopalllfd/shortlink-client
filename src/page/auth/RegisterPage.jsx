@@ -4,11 +4,16 @@ import Button from '../../components/Button';
 import { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import { useForm } from 'react-hook-form';
+import { Link, useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { registerUser } from '../../redux/slice/authSlice';
+import toast from 'react-hot-toast';
 
 function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,8 +25,14 @@ function RegisterPage() {
 
   const password = watch('password');
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      await dispatch(registerUser(data)).unwrap();
+      toast.success('register success');
+      navigate('/auth/login');
+    } catch (error) {
+      toast.error(error);
+    }
   };
 
   return (
@@ -33,7 +44,6 @@ function RegisterPage() {
             <p className="text-sm text-gray-500">Please enter your details to sign up.</p>
           </div>
 
-          {/* Email */}
           <div>
             <label className="block text-sm text-gray-600 mb-1">Email Address</label>
 
@@ -55,7 +65,6 @@ function RegisterPage() {
             {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
           </div>
 
-          {/* Password */}
           <div>
             <label className="block text-sm text-gray-600 mb-1">Password</label>
 
@@ -123,7 +132,10 @@ function RegisterPage() {
       </AuthCard>
 
       <p className="text-sm text-gray-500">
-        Already have an account? <span className="text-blue-500 cursor-pointer">Sign in</span>
+        Already have an account?{' '}
+        <Link to="/auth/login">
+          <span className="text-blue-500 cursor-pointer">Sign in</span>
+        </Link>
       </p>
     </AuthLayout>
   );

@@ -8,7 +8,7 @@ import AuthCard from '../../components/auth/AuthCard';
 import Button from '../../components/Button';
 
 import { loginUser } from '../../redux/slice/authSlice';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import toast from 'react-hot-toast';
 
 function LoginPage() {
@@ -48,7 +48,6 @@ function LoginPage() {
             <p className="text-sm text-gray-500">Please enter your details to sign in.</p>
           </div>
 
-          {/* Email */}
           <div>
             <label className="text-sm text-gray-600 mb-1 block">Email Address</label>
 
@@ -70,7 +69,6 @@ function LoginPage() {
             {errors.email && <p className="text-xs text-red-500 mt-1">{errors.email.message}</p>}
           </div>
 
-          {/* Password */}
           <div>
             <div className="flex justify-between text-sm mb-1">
               <label className="text-gray-600">Password</label>
@@ -114,7 +112,10 @@ function LoginPage() {
       </AuthCard>
 
       <p className="text-sm text-gray-500">
-        Don’t have an account? <span className="text-blue-500 cursor-pointer">Sign up</span>
+        Don’t have an account?{' '}
+        <Link to="/auth/register">
+          <span className="text-blue-500 cursor-pointer">Sign up</span>
+        </Link>
       </p>
     </AuthLayout>
   );

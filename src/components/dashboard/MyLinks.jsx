@@ -88,6 +88,13 @@ function MyLinks() {
           <Filter size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500" />
         </div>
 
+        <Link
+          to="/dashboard/deleted"
+          className="inline-flex items-center px-4 py-2 mb-2 ms-1 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+        >
+          Deleted Links
+        </Link>
+
         {/* links */}
         <div className="space-y-4">
           {links?.length > 0

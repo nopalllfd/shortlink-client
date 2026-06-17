@@ -10,6 +10,7 @@ import NotFoundPage from './page/NotFoundPage';
 import ProfilePage from './page/ProfilePage';
 import ProtectedRoute from './components/ProtectedRoute';
 import RedirectPage from './page/RedirectPage';
+import DeletedLinks from './components/dashboard/DeletedLinks';
 
 function AppRouter() {
   return (
@@ -26,6 +27,7 @@ function AppRouter() {
         <Route path="/dashboard">
           <Route index element={<DashboardPage />} />
           <Route path="create" element={<CreateLinkPage />} />
+          <Route path="deleted" element={<DeletedLinks />} />
         </Route>
         <Route path="/profile" element={<ProfilePage />} />
       </Route>

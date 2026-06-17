@@ -4,6 +4,7 @@ import { baseUrl } from '../../utils/env';
 
 const initialState = {
   links: null,
+  deletedLinks: null,
   loading: false,
   error: null,
   success: false,
@@ -71,6 +72,20 @@ export const checkSlug = createAsyncThunk('link/redirect', async (slug, thunkAPI
   } catch (error) {
     console.log(error);
     return thunkAPI.rejectWithValue('no page');
+  }
+});
+
+export const getDeletedLinks = createAsyncThunk('link/getDeleted', async (payload, thunkAPI) => {
+  try {
+    const response = await fetchWithAuth(`/api/links/deleted`, thunkAPI.dispatch);
+    const data = await response.json();
+    if (!response.ok) {
+      return thunkAPI.rejectWithValue(data?.message || 'get links failed');
+    }
+    console.log(data.data);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
   }
 });
 
@@ -148,6 +163,19 @@ const linkSlice = createSlice({
       .addCase(checkSlug.rejected, (state, action) => {
         state.loading = false;
         state.success = false;
+        state.error = action.payload;
+      })
+      // GET DELETED LINKS
+      .addCase(getDeletedLinks.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getDeletedLinks.fulfilled, (state, action) => {
+        state.loading = false;
+        state.deletedLinks = action.payload.data;
+      })
+      .addCase(getDeletedLinks.rejected, (state, action) => {
+        state.loading = false;
         state.error = action.payload;
       });
   },
