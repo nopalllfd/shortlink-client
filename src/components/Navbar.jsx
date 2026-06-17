@@ -3,13 +3,19 @@ import AuthButtons from './AuthButtons';
 import UserMenu from './UserMenu';
 import CreateLinkButton from './CreateLinkButton';
 
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 
 function Navbar() {
-  // const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
-  // dummy sementara
-  const isAuthenticated = false;
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/auth/login', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <nav className="w-full bg-gray-100 border-b border-gray-200 px-6 py-3 flex items-center justify-between">

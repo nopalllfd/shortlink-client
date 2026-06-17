@@ -8,6 +8,7 @@ import DashboardPage from './page/DashboardPage';
 import CreateLinkPage from './page/CreateLinkPage';
 import NotFoundPage from './page/NotFoundPage';
 import ProfilePage from './page/ProfilePage';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function AppRouter() {
   return (
@@ -19,12 +20,14 @@ function AppRouter() {
       <Route path="/home" element={<HomeLayout />}>
         <Route index element={<HomePage />} />
       </Route>
-      <Route path="/dashboard">
-        <Route index element={<DashboardPage />} />
-        <Route path="create" element={<CreateLinkPage />} />
+      <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard">
+          <Route index element={<DashboardPage />} />
+          <Route path="create" element={<CreateLinkPage />} />
+        </Route>
+        <Route path="/profile" element={<ProfilePage />} />
       </Route>
       <Route path="/notfound" element={<NotFoundPage />} />
-      <Route path="/profile" element={<ProfilePage />} />
     </Routes>
   );
 }
