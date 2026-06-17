@@ -13,28 +13,31 @@ ShortLink is a full-featured URL shortening service frontend that provides:
 - User profile management
 
 ### Home Page
-![Home Page](https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern%20URL%20shortener%20website%20homepage%20with%20hero%20section%2C%20features%2C%20and%20clean%20minimal%20design%20in%20blue%20theme&image_size=square_hd)
+
+![Home Page](\Koda-Academy\phase-3\client\shortlink\public\assets\overview\dashboard.png)
 
 ### Dashboard
+
 ![Dashboard](https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=URL%20shortener%20dashboard%20with%20link%20list%2C%20statistics%20cards%2C%20and%20modern%20UI%20design&image_size=square_hd)
 
 ### Login Page
+
 ![Login](https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern%20login%20page%20with%20clean%20form%20design%2C%20minimalist%20style%2C%20blue%20theme&image_size=square_hd)
 
 ## Technology Stack
 
-| Technology | Version | Description |
-|------------|---------|-------------|
-| React | ^19.2.4 | Frontend library |
-| Vite | ^8.0.1 | Build tool and dev server |
-| React Router | ^7.13.2 | Client-side routing |
-| Redux Toolkit | ^2.11.2 | State management |
-| React Redux | ^9.2.0 | Redux bindings for React |
-| Tailwind CSS | ^4.2.2 | Utility-first CSS framework |
-| React Hook Form | ^7.72.1 | Form handling |
-| React Hot Toast | ^2.6.0 | Notifications |
-| Chart.js | ^4.5.1 | Data visualization |
-| Lucide React | ^1.20.0 | Icons |
+| Technology      | Version | Description                 |
+| --------------- | ------- | --------------------------- |
+| React           | ^19.2.4 | Frontend library            |
+| Vite            | ^8.0.1  | Build tool and dev server   |
+| React Router    | ^7.13.2 | Client-side routing         |
+| Redux Toolkit   | ^2.11.2 | State management            |
+| React Redux     | ^9.2.0  | Redux bindings for React    |
+| Tailwind CSS    | ^4.2.2  | Utility-first CSS framework |
+| React Hook Form | ^7.72.1 | Form handling               |
+| React Hot Toast | ^2.6.0  | Notifications               |
+| Chart.js        | ^4.5.1  | Data visualization          |
+| Lucide React    | ^1.20.0 | Icons                       |
 
 ## Project Structure
 
@@ -103,40 +106,44 @@ shortlink/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd shortlink
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Configure environment**
-   
+
    Open `src/utils/env.js` and verify the API base URL:
+
    ```javascript
    export const baseUrl = 'http://localhost:8080';
    ```
 
 4. **Start the development server**
+
    ```bash
    npm run dev
    ```
 
 5. **Open the application**
-   
+
    The app will be available at `http://localhost:5173`
 
 ### Available Scripts
 
-| Script | Description |
-|--------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
+| Script            | Description              |
+| ----------------- | ------------------------ |
+| `npm run dev`     | Start development server |
+| `npm run build`   | Build for production     |
 | `npm run preview` | Preview production build |
-| `npm run lint` | Run ESLint |
+| `npm run lint`    | Run ESLint               |
 
 ## Features
 
@@ -172,6 +179,7 @@ shortlink/
 ### Base URL
 
 All API endpoints are relative to:
+
 ```
 http://localhost:8080
 ```
@@ -179,6 +187,7 @@ http://localhost:8080
 ### Authentication Endpoints
 
 #### Register User
+
 ```http
 POST /api/auth/register
 Content-Type: application/json
@@ -191,6 +200,7 @@ Content-Type: application/json
 ```
 
 **Response (201 Created):**
+
 ```json
 {
   "message": "User registered successfully",
@@ -203,6 +213,7 @@ Content-Type: application/json
 ```
 
 #### Login User
+
 ```http
 POST /api/auth/login
 Content-Type: application/json
@@ -214,6 +225,7 @@ Content-Type: application/json
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "message": "Login successful",
@@ -228,12 +240,14 @@ Content-Type: application/json
 ```
 
 #### Logout User
+
 ```http
 DELETE /api/auth/logout
 Authorization: Bearer <token>
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "message": "Logged out successfully"
@@ -241,6 +255,7 @@ Authorization: Bearer <token>
 ```
 
 #### Get User Detail
+
 ```http
 GET /api/auth/user/{userId}
 Authorization: Bearer <token>
@@ -249,12 +264,14 @@ Authorization: Bearer <token>
 ### Link Endpoints
 
 #### Get All Links
+
 ```http
 GET /api/links
 Authorization: Bearer <token>
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "message": "Links retrieved successfully",
@@ -271,6 +288,7 @@ Authorization: Bearer <token>
 ```
 
 #### Create Link
+
 ```http
 POST /api/links
 Authorization: Bearer <token>
@@ -283,6 +301,7 @@ Content-Type: application/json
 ```
 
 **Response (201 Created):**
+
 ```json
 {
   "message": "Link created successfully",
@@ -298,12 +317,14 @@ Content-Type: application/json
 ```
 
 #### Delete Link
+
 ```http
 DELETE /api/links/{id}
 Authorization: Bearer <token>
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "message": "Link deleted successfully"
@@ -311,17 +332,20 @@ Authorization: Bearer <token>
 ```
 
 #### Get Deleted Links
+
 ```http
 GET /api/links/deleted
 Authorization: Bearer <token>
 ```
 
 #### Check Slug & Redirect
+
 ```http
 GET /api/links/{slug}
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "data": {
@@ -333,12 +357,14 @@ GET /api/links/{slug}
 ### Profile Endpoints
 
 #### Get Profile
+
 ```http
 GET /api/profiles
 Authorization: Bearer <token>
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "message": "Profile retrieved successfully",
