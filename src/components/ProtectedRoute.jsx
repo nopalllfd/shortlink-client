@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { Navigate, Outlet } from 'react-router';
+import { Outlet, useNavigate } from 'react-router';
 
 function ProtectedRoute() {
   const { isAuthenticated } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (!isAuthenticated) {
-      return <Navigate to="/auth/login" replace />;
+      navigate('/auth/login', { replace: true });
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigate]);
   return <Outlet />;
 }
 

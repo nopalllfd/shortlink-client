@@ -1,9 +1,15 @@
 import { Bell, Shield, Link2, Pencil, LogOut } from 'lucide-react';
+import { FourSquare } from 'react-loading-indicators';
 import { Link } from 'react-router';
 
-function ProfileCard({ profile }) {
+function ProfileCard({ profile, loading }) {
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+      {loading && (
+        <div className="absolute inset-0 bg-white/70 flex items-center justify-center z-50">
+          <FourSquare color="#809ccc" size="medium" />
+        </div>
+      )}
       <div className="flex items-start justify-between">
         <h1 className="text-3xl font-bold">Profile</h1>
       </div>

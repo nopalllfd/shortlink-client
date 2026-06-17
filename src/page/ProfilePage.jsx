@@ -7,16 +7,13 @@ import { getProfile } from '../redux/slice/profileSlice';
 import { useEffect } from 'react';
 
 function ProfilePage() {
-  const { profile } = useSelector((state) => state.profile);
+  const { profile, loading } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
 
+  console.log(loading);
   useEffect(() => {
     dispatch(getProfile());
   }, [dispatch]);
-  // fallback ke dummy
-  // const profile = user || profileDummy;
-
-  //   const profile = profileDummy;
 
   return (
     <>
@@ -25,7 +22,7 @@ function ProfilePage() {
         <div className="mx-auto max-w-4xl">
           <p className="mb-4 text-xs font-bold uppercase tracking-widest text-slate-400">Account Management</p>
 
-          <ProfileCard profile={profile} />
+          <ProfileCard profile={profile} loading={loading} />
 
           <p className="mt-8 text-center text-xs text-slate-400">
             Your data is encrypted using AES-256 standards.
