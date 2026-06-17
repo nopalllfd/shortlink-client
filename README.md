@@ -14,15 +14,15 @@ ShortLink is a full-featured URL shortening service frontend that provides:
 
 ### Home Page
 
-![Home Page](\Koda-Academy\phase-3\client\shortlink\public\assets\overview\dashboard.png)
+![Home Page](public\assets\overview\home.png)
 
 ### Dashboard
 
-![Dashboard](https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=URL%20shortener%20dashboard%20with%20link%20list%2C%20statistics%20cards%2C%20and%20modern%20UI%20design&image_size=square_hd)
+![Dashboard](public\assets\overview\dashboard.png)
 
-### Login Page
+### Profile Page
 
-![Login](https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=modern%20login%20page%20with%20clean%20form%20design%2C%20minimalist%20style%2C%20blue%20theme&image_size=square_hd)
+![Profile](public\assets\overview\profile.png)
 
 ## Technology Stack
 
