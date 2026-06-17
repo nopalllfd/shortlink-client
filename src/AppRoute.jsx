@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router';
+import { Navigate, Route, Routes } from 'react-router';
 import './App.css';
 import LoginPage from './page/auth/LoginPage';
 import HomePage from './page/HomePage';
@@ -9,10 +9,12 @@ import CreateLinkPage from './page/CreateLinkPage';
 import NotFoundPage from './page/NotFoundPage';
 import ProfilePage from './page/ProfilePage';
 import ProtectedRoute from './components/ProtectedRoute';
+import RedirectPage from './page/RedirectPage';
 
 function AppRouter() {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/home" replace />} />
       <Route path="/auth">
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
@@ -28,6 +30,7 @@ function AppRouter() {
         <Route path="/profile" element={<ProfilePage />} />
       </Route>
       <Route path="/notfound" element={<NotFoundPage />} />
+      <Route path="/:slug" element={<RedirectPage />} />
     </Routes>
   );
 }

@@ -1,8 +1,8 @@
 import { logout } from '../redux/slice/authSlice';
+import { baseUrl } from './env';
 
 export const fetchWithAuth = async (url, options = {}, dispatch) => {
   const token = localStorage.getItem('token');
-  const baseUrl = 'http://localhost:8080';
   const response = await fetch(`${baseUrl}${url}`, {
     ...options,
     headers: {

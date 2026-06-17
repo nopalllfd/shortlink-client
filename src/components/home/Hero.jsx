@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router';
+
 function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
       <div className="w-full max-w-5xl text-center">
@@ -13,7 +17,10 @@ function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-          <button className="px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold shadow-lg shadow-blue-200 hover:bg-blue-700 transition">
+          <button
+            onClick={() => navigate('/dashboard')}
+            className="px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold shadow-lg shadow-blue-200 hover:bg-blue-700 transition"
+          >
             Get Started
           </button>
 
@@ -30,7 +37,11 @@ function Hero() {
               className="flex-1 px-4 py-4 outline-none text-slate-500 placeholder:text-slate-400"
             />
 
-            <button type="submit" className="px-8 py-4 rounded-xl bg-blue-700 text-white font-semibold hover:bg-blue-800 transition">
+            <button
+              onClick={() => navigate('/dashboard')}
+              type="submit"
+              className="px-8 py-4 rounded-xl bg-blue-700 text-white font-semibold hover:bg-blue-800 transition"
+            >
               Shorten
             </button>
           </form>
