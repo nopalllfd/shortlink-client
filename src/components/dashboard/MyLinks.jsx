@@ -5,6 +5,7 @@ import { deleteLink, getLinks } from '../../redux/slice/linkSlice';
 import { Link } from 'react-router';
 import ConfirmDeleteModal from '../ConfirmDeleteModal';
 import { FourSquare } from 'react-loading-indicators';
+import toast from 'react-hot-toast';
 
 function MyLinks() {
   const { links: data, loading } = useSelector((state) => state.link);
@@ -25,7 +26,7 @@ function MyLinks() {
         setCopiedId(null);
       }, 2000);
     } catch (error) {
-      console.error(error);
+      toast.error(error);
     }
   };
 
@@ -38,7 +39,7 @@ function MyLinks() {
 
       dispatch(getLinks());
     } catch (error) {
-      console.error(error);
+      toast.error(error);
     }
   };
 
