@@ -120,10 +120,10 @@ shortlink/
 
 3. **Configure environment**
 
-   Open `src/utils/env.js` and verify the API base URL:
+   Open `.env.example` and verify the API base URL:
 
-   ```javascript
-   export const baseUrl = 'http://localhost:8080';
+   ```.env.example
+   VITE_BASE_API=http://localhost:8080
    ```
 
 4. **Start the development server**
@@ -158,16 +158,12 @@ shortlink/
 
 - **Create Short Links**: Generate custom short URLs with optional slugs
 - **View All Links**: See all your created links in the dashboard
-- **Edit Links**: Modify existing links (coming soon)
 - **Delete Links**: Remove links you no longer need
-- **Deleted Links**: View and restore deleted links
-- **Link Statistics**: Track click counts and other metrics
+- **Deleted Links**: View deleted links
 
 ### Profile Management
 
 - **View Profile**: Display user information
-- **Update Display Name**: Change your display name
-- **Upload Profile Photo**: Add or update your profile picture
 
 ### Redirection
 
