@@ -410,7 +410,6 @@ The application uses **Redux Toolkit** for state management with three main slic
 ### Styling Approach
 
 - **Tailwind CSS**: Utility-first CSS for rapid development
-- **Responsive Design**: Mobile-first approach
 - **Consistent Components**: Reusable Button, InputField, etc.
 
 ## Assumptions & Notes
@@ -420,7 +419,6 @@ The application uses **Redux Toolkit** for state management with three main slic
 3. **User Data**: User data is stored in Redux and persisted in localStorage
 4. **Error Handling**: Basic error handling with toast notifications
 5. **Form Validation**: Uses React Hook Form for form management
-6. **Image Storage**: Profile photos are expected to be URLs (not file uploads)
 
 ## Browser Support
 
