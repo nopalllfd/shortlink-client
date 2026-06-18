@@ -109,7 +109,7 @@ shortlink/
 
    ```bash
    git clone https://github.com/nopalllfd/shortlink-client.git
-   cd shortlink
+   cd shortlink-client
    ```
 
 2. **Install dependencies**
@@ -121,6 +121,8 @@ shortlink/
 3. **Configure environment**
 
    Open `.env.example` and verify the API base URL:
+
+   `cp .env.example .env`
 
    ```.env.example
    VITE_BASE_API=http://localhost:8080
