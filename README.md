@@ -14,15 +14,15 @@ ShortLink is a full-featured URL shortening service frontend that provides:
 
 ### Home Page
 
-![Home Page](public\assets\overview\home.png)
+![Home Page](https://github.com/nopalllfd/shortlink-client/blob/main/public/assets/overview/home.png)
 
 ### Dashboard
 
-![Dashboard](public\assets\overview\dashboard.png)
+![Dashboard](https://github.com/nopalllfd/shortlink-client/blob/main/public/assets/overview/dashboard.png)
 
 ### Profile Page
 
-![Profile](public\assets\overview\profile.png)
+![Profile](https://github.com/nopalllfd/shortlink-client/blob/main/public/assets/overview/profile.png)
 
 ## Technology Stack
 
