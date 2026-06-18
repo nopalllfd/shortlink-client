@@ -121,6 +121,7 @@ function MyLinks() {
                             })
                           : '-'}
                       </span>
+                      <span>clicks count : {link.clicks}</span>
                     </div>
                   </div>
 
