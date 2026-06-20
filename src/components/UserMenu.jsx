@@ -7,6 +7,7 @@ import ConfirmModal from './ConfirmDeleteModal';
 
 function UserMenu() {
   const { user } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -16,7 +17,9 @@ function UserMenu() {
   const handleLogout = async () => {
     try {
       setLoading(true);
+
       await dispatch(logoutUser());
+
       navigate('/auth/login');
     } catch (error) {
       toast.error(error?.message || 'Logout failed');
@@ -28,14 +31,39 @@ function UserMenu() {
   return (
     <>
       <div className="flex items-center gap-3">
-        <button onClick={() => setOpenLogoutModal(true)} className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">
-          Logout
-        </button>
-
         <Link to="/profile">
-          <div className="flex items-center gap-2">
-            <img src="/assets/profile.webp" className="w-8 h-8 rounded-full" />
-            <span>{user?.email}</span>
+          <div
+            className="
+              flex
+              items-center
+              gap-3
+              rounded-2xl
+              border
+              border-slate-200
+              bg-white
+              px-3
+              py-2
+              transition-all
+              hover:border-slate-300
+              hover:shadow-md
+            "
+          >
+            <img
+              src="/assets/profile.webp"
+              alt="Profile"
+              className="
+                h-9
+                w-9
+                rounded-full
+                object-cover
+              "
+            />
+
+            <div className="hidden sm:flex flex-col">
+              <span className="text-xs text-slate-400">Signed in as</span>
+
+              <span className="max-w-[180px] truncate text-sm font-medium text-slate-700">{user?.email}</span>
+            </div>
           </div>
         </Link>
       </div>

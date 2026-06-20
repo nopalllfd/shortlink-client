@@ -3,56 +3,113 @@ import { Zap, Link2, Users } from 'lucide-react';
 const features = [
   {
     title: 'Easy Create',
-    description: 'Instantly generate high-performance short links with a single click or through our surgical API endpoints.',
-    icon: Zap,
-    iconBg: 'bg-blue-100',
-    iconColor: 'text-blue-600',
-    accent: 'bg-blue-300',
+    description: 'Instantly generate high-performance short links with a single click or through our API.',
+    image: '/assets/features/create.svg',
+    accent: 'bg-blue-500',
+    glow: 'bg-blue-400',
   },
   {
     title: 'Custom Slugs',
-    description: 'Maintain brand authority with readable, custom link endings that resonate with your digital audience.',
-    icon: Link2,
-    iconBg: 'bg-indigo-100',
-    iconColor: 'text-indigo-600',
-    accent: 'bg-indigo-300',
+    description: 'Maintain brand authority with readable and memorable custom URLs.',
+    image: '/assets/features/slug.svg',
+    accent: 'bg-indigo-500',
+    glow: 'bg-indigo-400',
   },
   {
     title: 'Team Ready',
-    description: 'Collaborate across departments with shared workspaces, permissions, and unified analytics dashboards.',
-    icon: Users,
-    iconBg: 'bg-orange-100',
-    iconColor: 'text-orange-600',
-    accent: 'bg-orange-300',
+    description: 'Collaborate with your entire organization through shared workspaces.',
+    image: '/assets/features/teamup.svg',
+    accent: 'bg-orange-500',
+    glow: 'bg-orange-400',
   },
 ];
-
 function Features() {
   return (
-    <section className="bg-slate-50 py-28">
-      <div className="max-w-7xl mx-auto px-6">
-        <span className="text-sm font-bold tracking-[0.25em] uppercase text-blue-600">Architectural Features</span>
+    <section className="relative overflow-hidden bg-slate-50 py-32">
+      {/* Background glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_50%)]" />
 
-        <h2 className="mt-4 text-4xl font-bold text-slate-900">Built for Enterprise Precision</h2>
+      <div className="relative max-w-7xl mx-auto px-6">
+        {/* Header */}
+        <div className="max-w-3xl">
+          <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+            Architectural Features
+          </span>
 
-        <div className="grid gap-8 mt-16 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => {
+          <h2 className="mt-6 text-5xl font-bold tracking-tight text-slate-900">Built for Enterprise Precision</h2>
+
+          <p className="mt-6 text-lg leading-8 text-slate-500">
+            Everything you need to create, manage, and analyze links with exceptional speed, reliability, and complete operational control.
+          </p>
+        </div>
+
+        {/* Cards */}
+        <div className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
               <div
-                key={feature.title}
-                className="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 hover:shadow-lg transition-all duration-300"
+                className="
+    group
+    relative
+    overflow-hidden
+    rounded-3xl
+    border
+    border-slate-200
+    bg-white
+    p-8
+    transition-all
+    duration-500
+    hover:-translate-y-2
+    hover:shadow-[0_30px_60px_-15px_rgba(15,23,42,0.15)]
+  "
               >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${feature.iconBg}`}>
-                  <Icon size={20} className={feature.iconColor} />
+                {/* Glow */}
+                <div
+                  className={`
+      absolute
+      -top-20
+      -right-20
+      h-48
+      w-48
+      rounded-full
+      blur-3xl
+      opacity-10
+      ${feature.glow}
+    `}
+                />
+
+                {/* Number */}
+                <span className="absolute top-8 right-8 text-sm font-bold text-slate-200">0{index + 1}</span>
+
+                {/* SVG Illustration */}
+                <div className="relative z-10 flex justify-center">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="
+        h-40
+        object-contain
+        transition-transform
+        duration-500
+        group-hover:scale-105
+      "
+                  />
                 </div>
 
-                <h3 className="mt-8 text-2xl font-semibold text-slate-900">{feature.title}</h3>
+                {/* Content */}
+                <div className="relative z-10 mt-8">
+                  <h3 className="text-2xl font-bold tracking-tight text-slate-900">{feature.title}</h3>
 
-                <p className="mt-4 text-slate-500 leading-8">{feature.description}</p>
+                  <p className="mt-4 leading-8 text-slate-500">{feature.description}</p>
 
-                <div className={`w-10 h-1 rounded-full mt-8 ${feature.accent}`} />
+                  <div className="mt-8 flex items-center gap-3">
+                    <div className={`h-1.5 w-12 rounded-full ${feature.accent}`} />
+
+                    <span className="text-sm font-medium text-slate-400">Learn More</span>
+                  </div>
+                </div>
               </div>
             );
           })}

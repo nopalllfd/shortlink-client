@@ -4,47 +4,120 @@ function Hero() {
   const navigate = useNavigate();
 
   return (
-    <section className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
-      <div className="w-full max-w-5xl text-center">
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900">
-          Shorten URLs. <span className="text-blue-600">Share Easily.</span>
-        </h1>
+    <section className="relative overflow-hidden bg-slate-50">
+      {/* Background Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_50%)]" />
 
-        <p className="mt-6 text-slate-500 text-lg leading-8 max-w-3xl mx-auto">
-          Create short, memorable links for your team communications.
-          <br />
-          Transform long, cumbersome URLs into powerful digital assets that drive engagement.
-        </p>
+      <div className="relative mx-auto flex min-h-screen max-w-7xl items-center px-6 py-32">
+        <div className="mx-auto w-full max-w-5xl text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-blue-600">
+            Enterprise Link Management
+          </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-          <button
-            onClick={() => navigate('/dashboard')}
-            className="px-8 py-4 rounded-xl bg-blue-600 text-white font-semibold shadow-lg shadow-blue-200 hover:bg-blue-700 transition"
-          >
-            Get Started
-          </button>
+          {/* Heading */}
+          <h1 className="mt-8 text-5xl font-extrabold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
+            Shorten URLs.
+            <br />
+            <span className="text-blue-600">Share With Confidence.</span>
+          </h1>
 
-          <button className="px-8 py-4 rounded-xl border border-slate-200 bg-white text-blue-600 font-semibold hover:bg-slate-50 transition">
-            Learn More
-          </button>
-        </div>
+          {/* Description */}
+          <p className="mx-auto mt-8 max-w-3xl text-base leading-8 text-slate-500 sm:text-lg">
+            Create branded short links, track engagement, and manage every URL from a single powerful platform designed for teams and modern
+            businesses.
+          </p>
 
-        <div className="mt-16 bg-white rounded-2xl shadow-xl shadow-slate-200/60 p-4 max-w-3xl mx-auto">
-          <form className="flex flex-col sm:flex-row gap-3">
-            <input
-              type="url"
-              placeholder="https://very-long-architectural-url.com/asset-id-99238-x1"
-              className="flex-1 px-4 py-4 outline-none text-slate-500 placeholder:text-slate-400"
-            />
-
+          {/* CTA */}
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <button
               onClick={() => navigate('/dashboard')}
-              type="submit"
-              className="px-8 py-4 rounded-xl bg-blue-700 text-white font-semibold hover:bg-blue-800 transition"
+              className="
+                rounded-2xl
+                bg-blue-600
+                px-8
+                py-4
+                font-semibold
+                text-white
+                shadow-lg
+                shadow-blue-200
+                transition-all
+                hover:-translate-y-1
+                hover:bg-blue-700
+              "
             >
-              Shorten
+              Get Started
             </button>
-          </form>
+
+            <button
+              className="
+                rounded-2xl
+                border
+                border-slate-200
+                bg-white
+                px-8
+                py-4
+                font-semibold
+                text-slate-700
+                transition-all
+                hover:border-slate-300
+                hover:shadow-md
+              "
+            >
+              Learn More
+            </button>
+          </div>
+
+          {/* Demo Form */}
+          <div className="mx-auto mt-16 max-w-4xl">
+            <div
+              className="
+                overflow-hidden
+                rounded-3xl
+                border
+                border-slate-200
+                bg-white
+                p-4
+                shadow-[0_30px_60px_-15px_rgba(15,23,42,0.12)]
+              "
+            >
+              <form className="flex flex-col gap-3 lg:flex-row">
+                <input
+                  type="url"
+                  placeholder="https://very-long-architectural-url.com/asset-id-99238-x1"
+                  className="
+                    flex-1
+                    rounded-2xl
+                    border
+                    border-slate-100
+                    px-5
+                    py-4
+                    text-slate-600
+                    outline-none
+                    transition
+                    focus:border-blue-300
+                  "
+                />
+
+                <button
+                  type="submit"
+                  onClick={() => navigate('/dashboard')}
+                  className="
+                    rounded-2xl
+                    bg-blue-600
+                    px-8
+                    py-4
+                    font-semibold
+                    text-white
+                    transition-all
+                    hover:bg-blue-700
+                  "
+                >
+                  Shorten URL
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </section>

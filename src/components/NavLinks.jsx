@@ -6,14 +6,6 @@ function NavLinks() {
       label: 'Dashboard',
       path: '/dashboard',
     },
-    {
-      label: 'Analytics',
-      path: '/analytics',
-    },
-    {
-      label: 'Links',
-      path: '/links',
-    },
   ];
 
   return (

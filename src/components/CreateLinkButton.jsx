@@ -3,7 +3,24 @@ import { Link } from 'react-router';
 function CreateLinkButton() {
   return (
     <Link to="/dashboard/create">
-      <button className="bg-green-600 cursor-pointer text-white px-4 py-2 rounded-lg hover:bg-green-700">+ Create New Link</button>
+      <button
+        className="
+          rounded-xl
+          bg-blue-600
+          px-4
+          py-2.5
+          text-sm
+          font-semibold
+          text-white
+          transition-all
+          hover:-translate-y-0.5
+          hover:bg-blue-700
+          hover:shadow-lg
+          hover:shadow-blue-200
+        "
+      >
+        + Create Link
+      </button>
     </Link>
   );
 }

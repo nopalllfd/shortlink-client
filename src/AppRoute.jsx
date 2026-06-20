@@ -29,6 +29,7 @@ function AppRouter() {
           <Route path="create" element={<CreateLinkPage />} />
           <Route path="deleted" element={<DeletedLinks />} />
         </Route>
+        <Route path="/analitycs"></Route>
         <Route path="/profile" element={<ProfilePage />} />
       </Route>
       <Route path="/notfound" element={<NotFoundPage />} />
